@@ -28,4 +28,10 @@ jobs:
         run: dotnet test --configuration ${{env.BUILD_CONFIGURATION}}
 
       - name: Dotnet publish
-        run: dotnet publish --configuration ${{env.BUILD_CONFIGURATION}} -o artifacts
+        run: dotnet publish src/TaskApi/TaskApi.csproj --configuration ${{env.BUILD_CONFIGURATION}} -o artifacts
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: uv-artifact
+          path: artifacts/
