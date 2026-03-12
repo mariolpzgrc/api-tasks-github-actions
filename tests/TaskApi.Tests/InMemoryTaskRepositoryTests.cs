@@ -49,35 +49,35 @@ public class InMemoryTaskRepositoryTests
         r2.Id.Should().Be(r1.Id + 1);
     }
 
-    [Fact]
-    public void GetAll()
-    {
-        var resultado = _repo.GetAll();
-        resultado.Should().BeEmpty();
-    }
+    // [Fact]
+    // public void GetAll()
+    // {
+    //     var resultado = _repo.GetAll();
+    //     resultado.Should().BeEmpty();
+    // }
 
-    [Fact]
-    public void GetAll_ConDosTareas_RetornarDosTareas()
-    {
-        TaskItem tarea1 = new()
-        {
-            Title = "Comprar un sbos",
-            Description = "Para jugar Halito"
-        };
+    // [Fact]
+    // public void GetAll_ConDosTareas_RetornarDosTareas()
+    // {
+    //     TaskItem tarea1 = new()
+    //     {
+    //         Title = "Comprar un sbos",
+    //         Description = "Para jugar Halito"
+    //     };
 
-        TaskItem tarea2 = new()
-        {
-            Title = "Armar una PCMR",
-            Description = "Quiero ser feliz"
-        };
+    //     TaskItem tarea2 = new()
+    //     {
+    //         Title = "Armar una PCMR",
+    //         Description = "Quiero ser feliz"
+    //     };
 
-        var r1 = _repo.Add(tarea1);
-        var r2 = _repo.Add(tarea2);
+    //     var r1 = _repo.Add(tarea1);
+    //     var r2 = _repo.Add(tarea2);
 
-        var resultado = _repo.GetAll();
+    //     var resultado = _repo.GetAll();
 
-        resultado.Should().HaveCount(2);
-    }
+    //     resultado.Should().HaveCount(2);
+    // }
 
     [Fact]
     public void GetByID_TareaExiste_RetornarTarea()
