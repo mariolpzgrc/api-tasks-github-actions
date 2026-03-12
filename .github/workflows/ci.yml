@@ -46,3 +46,9 @@ jobs:
         with:
           name: uv-artifact
           path: artifacts/
+  
+      - name: Deploy en Azure Service
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: app-api-55720-dev
+          package: artifacts/
