@@ -23,7 +23,8 @@ public class TasksController : ControllerBase
     public IActionResult GetById(int id)
     {
         var task = _repo.GetById(id);
-        return task is null ? NotFound() : Ok(task);
+        // return task is null ? NotFound() : Ok(task);
+        return BadRequest();
     }
 
     [HttpPost]
