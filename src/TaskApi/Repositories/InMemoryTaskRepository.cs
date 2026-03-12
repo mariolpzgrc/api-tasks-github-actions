@@ -9,15 +9,15 @@ public class InMemoryTaskRepository : ITaskRepository
 
     public InMemoryTaskRepository()
     {
-        // Inicializar con 5 registros de prueba
-        // _tasks.AddRange(new[]
-        // {
-        //     new TaskItem { Id = _nextId++, Title = "Tarea 1", Description = "Descripción de la tarea 1", IsCompleted = false },
-        //     new TaskItem { Id = _nextId++, Title = "Tarea 2", Description = "Descripción de la tarea 2", IsCompleted = true },
-        //     new TaskItem { Id = _nextId++, Title = "Tarea 3", Description = "Descripción de la tarea 3", IsCompleted = false },
-        //     new TaskItem { Id = _nextId++, Title = "Tarea 4", Description = "Descripción de la tarea 4", IsCompleted = false },
-        //     new TaskItem { Id = _nextId++, Title = "Tarea 5", Description = "Descripción de la tarea 5", IsCompleted = true }
-        // });
+        //Inicializar con 5 registros de prueba
+        _tasks.AddRange(
+        [
+            new TaskItem { Id = _nextId++, Title = "Tarea 1", Description = "Descripción de la tarea 1", IsCompleted = false },
+            new TaskItem { Id = _nextId++, Title = "Tarea 2", Description = "Descripción de la tarea 2", IsCompleted = true },
+            new TaskItem { Id = _nextId++, Title = "Tarea 3", Description = "Descripción de la tarea 3", IsCompleted = false },
+            new TaskItem { Id = _nextId++, Title = "Tarea 4", Description = "Descripción de la tarea 4", IsCompleted = false },
+            new TaskItem { Id = _nextId++, Title = "Tarea 5", Description = "Descripción de la tarea 5", IsCompleted = true }
+        ]);
     }
 
     public IEnumerable<TaskItem> GetAll() => _tasks.AsReadOnly();
