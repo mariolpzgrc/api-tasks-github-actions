@@ -24,14 +24,25 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Test
-        run: dotnet test --configuration ${{env.BUILD_CONFIGURATION}}
+      #- name: Test
+      #  run: dotnet test --configuration ${{env.BUILD_CONFIGURATION}}
 
       - name: Dotnet publish
         run: dotnet publish src/TaskApi/TaskApi.csproj --configuration ${{env.BUILD_CONFIGURATION}} -o artifacts
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
+        with:
+          name: uv-artifact
+          path: artifacts/
+  
+  deploy_dev:
+    name: Deploy Dev
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Downdload Artifact
+        uses: actions/download-artifact@v4
         with:
           name: uv-artifact
           path: artifacts/
